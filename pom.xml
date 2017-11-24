@@ -23,6 +23,14 @@
             <name>bintray</name>
             <url>https://dl.bintray.com/dptinfoutln/public</url>
         </repository>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-maxtemmerier-maven-repo</id>
+            <name>bintray</name>
+            <url>https://dl.bintray.com/maxtemmerier/maven-repo</url>
+        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
@@ -32,6 +40,14 @@
             <id>bintray-dptinfoutln-public</id>
             <name>bintray-plugins</name>
             <url>https://dl.bintray.com/dptinfoutln/public</url>
+        </pluginRepository>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-maxtemmerier-maven-repo</id>
+            <name>bintray-plugins</name>
+            <url>https://dl.bintray.com/maxtemmerier/maven-repo</url>
         </pluginRepository>
     </pluginRepositories>
 
@@ -95,6 +111,13 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>bintray-maxtemmerier-maven-repo</id>
+            <name>maxtemmerier-maven-repo</name>
+            <url>https://api.bintray.com/maven/maxtemmerier/maven-repo/boardgame_restserver/;publish=1</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
 
