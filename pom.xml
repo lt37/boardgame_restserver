@@ -122,7 +122,9 @@
 
         <dependency>
             <groupId>fr.univtln.m2dapm.boardgame</groupId>
-            <artifactId>boardgame_businessclass</artifactId>
+            <artifactId>BoardGame_BusinessClass</artifactId>
+            <version>1.0</version>
+            <type>pom</type>
         </dependency>
 
         <dependency>
