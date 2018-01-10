@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+			 version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+	<persistence-unit name="persistenceVV" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+		<class>fr.univtln.m2dapm.boardgame.business.bridgedices.Bridge</class>
+		<class>fr.univtln.m2dapm.boardgame.business.bridgedices.SpecialWeapon</class>
+		<class>fr.univtln.m2dapm.boardgame.business.gameinfos.Game</class>
+		<class>fr.univtln.m2dapm.boardgame.business.gameinfos.Player</class>
+		<class>fr.univtln.m2dapm.boardgame.business.tokens.Field</class>
+		<class>fr.univtln.m2dapm.boardgame.business.tokens.Ship</class>
+
+		<properties>
+
+			<!-- Les paramètres de connexions -->
+			<property name="javax.persistence.target-database" value="PostgreSQL"/>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/databasevv"/>
+			<!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://pg:5432/databasevv"/>-->
+			<property name="javax.persistence.jdbc.user" value="uservv"/>
+			<property name="javax.persistence.jdbc.password" value="mdp"/>
+			<property name="eclipselink.ddl-generation.output-mode" value="both"/>
+			<!--<property name="eclipselink.ddl-generation" value="create-tables"/>-->
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+		</properties>
+
+	</persistence-unit>
+</persistence>
