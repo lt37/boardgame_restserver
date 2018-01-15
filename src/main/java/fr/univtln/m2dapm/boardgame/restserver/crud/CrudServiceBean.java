@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class CrudServiceBean<T> implements CrudService<T> {
 
-    private final String PERSISTENCE_UNIT = "persistenceVV";
+    private final String PERSISTENCE_UNIT = "fleetcommander-unit";
 
     private static CrudServiceBean instance = null;
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
