@@ -123,7 +123,7 @@
         <dependency>
             <groupId>fr.univtln.m2dapm.boardgame</groupId>
             <artifactId>BoardGame_BusinessClass</artifactId>
-            <version>1.0.0-dev-39</version>
+            <version>1.0.0-dev-44</version>
         </dependency>
 
         <dependency>
