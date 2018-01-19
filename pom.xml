@@ -10,6 +10,10 @@
         <lsisnexus.login>lois-tonnet@etud.univ-tln.fr</lsisnexus.login>
         <!-- the default Main class -->
         <app.main.class>fr.univtln.m2dapm.boardgame.App</app.main.class>
+
+        <jersey-version>1.19</jersey-version>
+        <netbeans.int.deploy.server>gfv3ee6</netbeans.int.deploy.server>
+        <primefaces.version>5.3</primefaces.version>
     </properties>
     <!-- ADAPTER LES PROPRIETES SUIVANTES -->
 
@@ -123,7 +127,7 @@
         <dependency>
             <groupId>fr.univtln.m2dapm.boardgame</groupId>
             <artifactId>BoardGame_BusinessClass</artifactId>
-            <version>1.0.0-dev-44</version>
+            <version>1.1.0-dev-51</version>
         </dependency>
 
         <dependency>
@@ -179,11 +183,43 @@
             <version>2.6.4</version>
         </dependency>
 
-        <!--GSON-->
+        <!--EJB-->
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.1</version>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.ejb</artifactId>
+            <version>3.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-servlet</artifactId>
+            <version>${jersey-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>${jersey-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.jersey.contribs</groupId>
+            <artifactId>jersey-multipart</artifactId>
+            <version>${jersey-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>${primefaces.version}</version>
         </dependency>
 
     </dependencies>
