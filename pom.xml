@@ -64,7 +64,7 @@
     <groupId>fr.univtln.m2dapm.boardgame</groupId>
     <artifactId>BoardGame_RESTServer</artifactId>
     <version>1.0-dao-rest_resources-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <!-- ADAPTER les coordonnées -->
 
     <!-- ADAPTER les métadonnées -->
