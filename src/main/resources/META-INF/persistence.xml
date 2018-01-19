@@ -6,6 +6,12 @@
 
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 
+		<class>fr.univtln.m2dapm.boardgame.business.board.Board</class>
+		<class>fr.univtln.m2dapm.boardgame.business.board.PlaceableBehavior</class>
+		<class>fr.univtln.m2dapm.boardgame.business.board.Square</class>
+		<class>fr.univtln.m2dapm.boardgame.business.dices.Dice</class>
+
+
 		<class>fr.univtln.m2dapm.boardgame.business.bridgedices.Bridge</class>
 		<class>fr.univtln.m2dapm.boardgame.business.bridgedices.SpecialWeapon</class>
 		<class>fr.univtln.m2dapm.boardgame.business.gameinfos.Game</class>
