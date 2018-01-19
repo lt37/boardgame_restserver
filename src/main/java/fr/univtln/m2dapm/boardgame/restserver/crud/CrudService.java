@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.Map;
 
 public interface CrudService<T> {
-    T create(T t);
-    T find(Class<T> type, Object id);
-    T update(T t);
-    T delete(Class type, Object id);
-    List findWithNamedQuery(Class<T> type, String queryName);
-    List findWithNamedQuery(Class<T> type, String queryName, int resultLimit);
-    List findWithNamedQuery(Class<T> type, String namedQueryName, Map parameters);
-    List findWithNamedQuery(Class<T> type, String namedQueryName, Map parameters, int resultLimit);
+    public T create(T t);
+    public T find(Class type, Object id);
+    public T update(T t);
+    public void delete(Class type, Object id);
+    public List findWithNamedQuery(String queryName);
+    public List findWithNamedQuery(String queryName, int resultLimit);
+    public List findWithNamedQuery(String namedQueryName, Map parameters);
+    public List findWithNamedQuery(String namedQueryName, Map parameters, int resultLimit);
 }
