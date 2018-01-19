@@ -1,15 +1,19 @@
-package fr.univtln.m2dapm.boardgame;
+package fr.univtln.m2dapm.boardgame.restserver;
 
 import org.apache.log4j.PatternLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 import java.lang.invoke.MethodHandles;
 
 /**
  * Hello world!
  */
-public class App {
+
+@ApplicationPath("/rest")
+public class App extends Application {
     @SuppressWarnings("unused")
     private static final Class[] shadeHack = {org.apache.log4j.RollingFileAppender.class,
             org.apache.log4j.ConsoleAppender.class,
