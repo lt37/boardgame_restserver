@@ -127,7 +127,7 @@
         <dependency>
             <groupId>fr.univtln.m2dapm.boardgame</groupId>
             <artifactId>BoardGame_BusinessClass</artifactId>
-            <version>1.1.0-dev-61</version>
+            <version>1.1.0-dev-62</version>
         </dependency>
 
         <dependency>
