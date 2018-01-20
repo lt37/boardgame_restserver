@@ -1,6 +1,5 @@
 package fr.univtln.m2dapm.boardgame.restserver.resources.gameinfos;
 
-import com.google.gson.Gson;
 import fr.univtln.m2dapm.boardgame.business.gameinfos.Player;
 import fr.univtln.m2dapm.boardgame.restserver.crud.CrudServiceBean;
 
@@ -33,11 +32,10 @@ public class PlayerResource {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getPlayerById(@PathParam("id") int id) {
+    public Player getPlayerById(@PathParam("id") int id) {
         System.out.println("GET player by id: " + id);
         Player player = crudServiceBean.find(Player.class, id);
-        Gson gson = new Gson();
-        return gson.toJson(player);
+        return player;
     }
 
 
