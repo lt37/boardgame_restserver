@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
-			 version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
-	<persistence-unit name="fleetcommander-unit" transaction-type="RESOURCE_LOCAL">
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+                                                    version="2.1">
+	<persistence-unit name="persistence" transaction-type="JTA">
 
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>jdbc/postgres-pool</jta-data-source>
 
 		<class>fr.univtln.m2dapm.boardgame.business.board.Board</class>
 		<class>fr.univtln.m2dapm.boardgame.business.board.PlaceableBehavior</class>
 		<class>fr.univtln.m2dapm.boardgame.business.board.Square</class>
 		<class>fr.univtln.m2dapm.boardgame.business.dices.Dice</class>
-
 
 		<class>fr.univtln.m2dapm.boardgame.business.bridgedices.Bridge</class>
 		<class>fr.univtln.m2dapm.boardgame.business.bridgedices.SpecialWeapon</class>
@@ -18,20 +20,6 @@
 		<class>fr.univtln.m2dapm.boardgame.business.gameinfos.Player</class>
 		<class>fr.univtln.m2dapm.boardgame.business.tokens.Field</class>
 		<class>fr.univtln.m2dapm.boardgame.business.tokens.Ship</class>
-
-		<properties>
-
-			<!-- Les paramètres de connexions -->
-			<property name="javax.persistence.target-database" value="PostgreSQL"/>
-			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/fleetcommanderdb"/>
-			<!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://pg:5432/databasevv"/>-->
-			<property name="javax.persistence.jdbc.user" value="fleetcommanderdb"/>
-			<property name="javax.persistence.jdbc.password" value="fleetcommanderpassword"/>
-			<property name="eclipselink.ddl-generation.output-mode" value="both"/>
-			<!--<property name="eclipselink.ddl-generation" value="create-tables"/>-->
-			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
-		</properties>
 
 	</persistence-unit>
 </persistence>

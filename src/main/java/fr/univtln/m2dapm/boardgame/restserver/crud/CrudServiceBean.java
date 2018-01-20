@@ -16,7 +16,7 @@ import java.util.Set;
 @TransactionAttribute(TransactionAttributeType.MANDATORY)
 public class CrudServiceBean<T> implements CrudService<T> {
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "persistence")
     EntityManager em;
 
 
