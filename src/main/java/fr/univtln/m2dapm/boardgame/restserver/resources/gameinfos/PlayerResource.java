@@ -56,7 +56,7 @@ public class PlayerResource {
     @Inject
     Player player;
 
-    @PersistenceContext(unitName = "boardgamePersistance")
+    @PersistenceContext(unitName = "persistence")
     EntityManager em;
 
     @POST
