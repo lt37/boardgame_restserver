@@ -18,7 +18,6 @@
 		<class>fr.univtln.m2dapm.boardgame.business.bridgedices.SpecialWeapon</class>
 		<class>fr.univtln.m2dapm.boardgame.business.gameinfos.Game</class>
 		<class>fr.univtln.m2dapm.boardgame.business.gameinfos.Player</class>
-		<class>fr.univtln.m2dapm.boardgame.business.tokens.AbstractToken</class>
 		<class>fr.univtln.m2dapm.boardgame.business.tokens.Field</class>
 		<class>fr.univtln.m2dapm.boardgame.business.tokens.Ship</class>
 
