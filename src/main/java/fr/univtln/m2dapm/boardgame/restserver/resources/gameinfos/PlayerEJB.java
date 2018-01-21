@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Stateless
 @Path("/players")
@@ -64,5 +65,12 @@ public class PlayerEJB {
         query.setParameter("mail", mail);
         player = query.getSingleResult();
         return player;
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List getAllPlayers() {
+        System.out.println("GET all players");
+        return em.createQuery("SELECT p FROM Player AS p", Player.class).getResultList();
     }
 }

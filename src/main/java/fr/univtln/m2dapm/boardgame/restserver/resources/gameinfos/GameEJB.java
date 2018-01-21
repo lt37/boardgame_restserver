@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Stateless
 @Path("/games")
@@ -54,5 +55,12 @@ public class GameEJB {
         query.setParameter("maxPJ", maxPJ);
         game = query.getSingleResult();
         return game;
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List getAllGames() {
+        System.out.println("GET all games");
+        return em.createQuery("SELECT g FROM Game AS g", Game.class).getResultList();
     }
 }
