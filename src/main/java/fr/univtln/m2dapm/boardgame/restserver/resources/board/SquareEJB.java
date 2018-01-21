@@ -21,11 +21,18 @@ public class SquareEJB {
     EntityManager em;
 
     @POST
-    @Path("/create/")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createSquare() {
+    public void createSquare(Square square) {
         System.out.println("POST square: " + square);
         em.persist(square);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updateSquare(Square square) {
+        System.out.println("PUT square: " + square);
+        em.merge(square);
     }
 
     @GET
@@ -33,7 +40,7 @@ public class SquareEJB {
     @Produces(MediaType.APPLICATION_JSON)
     public Square getSquareById(@PathParam("id") int id) {
         System.out.println("GET square by id: " + id);
-        Square square = em.find(Square.class, id);
+        square = em.find(Square.class, id);
         return square;
     }
 }

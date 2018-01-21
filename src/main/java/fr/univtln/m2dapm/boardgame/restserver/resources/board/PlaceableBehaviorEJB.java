@@ -21,11 +21,18 @@ public class PlaceableBehaviorEJB {
     EntityManager em;
 
     @POST
-    @Path("/create/")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createPlaceableBehavior() {
+    public void createPlaceableBehavior(PlaceableBehavior placeableBehavior) {
         System.out.println("POST placeableBehavior: " + placeableBehavior);
         em.persist(placeableBehavior);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updatePlaceableBehavior(PlaceableBehavior placeableBehavior) {
+        System.out.println("PUT placeableBehavior: " + placeableBehavior);
+        em.merge(placeableBehavior);
     }
 
     @GET
@@ -33,7 +40,7 @@ public class PlaceableBehaviorEJB {
     @Produces(MediaType.APPLICATION_JSON)
     public PlaceableBehavior getPlaceableBehaviorById(@PathParam("id") int id) {
         System.out.println("GET placeableBehavior by id: " + id);
-        PlaceableBehavior placeableBehavior = em.find(PlaceableBehavior.class, id);
+        placeableBehavior = em.find(PlaceableBehavior.class, id);
         return placeableBehavior;
     }
 }

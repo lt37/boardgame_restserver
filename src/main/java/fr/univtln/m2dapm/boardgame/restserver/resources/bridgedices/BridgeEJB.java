@@ -21,11 +21,18 @@ public class BridgeEJB {
     EntityManager em;
 
     @POST
-    @Path("/create/")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createBridge() {
+    public void createBridge(Bridge bridge) {
         System.out.println("POST bridge: " + bridge);
         em.persist(bridge);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updateBridge(Bridge bridge) {
+        System.out.println("PUT bridge: " + bridge);
+        em.merge(bridge);
     }
 
     @GET
@@ -33,7 +40,7 @@ public class BridgeEJB {
     @Produces(MediaType.APPLICATION_JSON)
     public Bridge getBridgeById(@PathParam("id") int id) {
         System.out.println("GET bridge by id: " + id);
-        Bridge bridge = em.find(Bridge.class, id);
+        bridge = em.find(Bridge.class, id);
         return bridge;
     }
 }

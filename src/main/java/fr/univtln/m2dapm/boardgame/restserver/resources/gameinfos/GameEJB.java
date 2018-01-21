@@ -22,20 +22,18 @@ public class GameEJB {
     EntityManager em;
 
     @POST
-    @Path("/create/{name}_{pwd}_{prv}_{maxPJ}_{maxACV}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createGame(@PathParam("name") String name,
-                             @PathParam("pwd") String pwd,
-                             @PathParam("prv") Boolean prv,
-                             @PathParam("maxPJ") int maxPJ,
-                             @PathParam("maxACV") int maxACV) {
+    public void createGame(Game game) {
         System.out.println("POST game: " + game);
-        game.setName(name);
-        game.setPassword(pwd);
-        game.setaPrivate(prv);
-        game.setMaxPlayers(maxPJ);
-        game.setMaxArmyClassValue(maxACV);
         em.persist(game);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updateGame(Game game) {
+        System.out.println("PUT game: " + game);
+        em.merge(game);
     }
 
     @GET
@@ -43,18 +41,18 @@ public class GameEJB {
     @Produces(MediaType.APPLICATION_JSON)
     public Game getGameById(@PathParam("id") int id) {
         System.out.println("GET game by id: " + id);
-        Game game = em.find(Game.class, id);
+        game = em.find(Game.class, id);
         return game;
     }
 
     @GET
-    @Path("/{maxPJ}")
+    @Path("/maxpj/{maxPJ}")
     @Produces(MediaType.APPLICATION_JSON)
     public Game getGameByMaxPJ(@PathParam("maxPJ") int maxPJ) {
         System.out.println("GET game by maxPJ: " + maxPJ);
         TypedQuery<Game> query = em.createQuery("SELECT g from Game as g where g.maxPlayers = :maxPJ", Game.class);
         query.setParameter("maxPJ", maxPJ);
-        Game game = query.getSingleResult();
+        game = query.getSingleResult();
         return game;
     }
 }

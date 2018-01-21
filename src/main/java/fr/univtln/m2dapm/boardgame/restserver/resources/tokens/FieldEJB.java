@@ -21,11 +21,18 @@ public class FieldEJB {
     EntityManager em;
 
     @POST
-    @Path("/create/")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createField() {
+    public void createField(Field field) {
         System.out.println("POST field: " + field);
         em.persist(field);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updateField(Field field) {
+        System.out.println("PUT field: " + field);
+        em.merge(field);
     }
 
     @GET
@@ -33,7 +40,7 @@ public class FieldEJB {
     @Produces(MediaType.APPLICATION_JSON)
     public Field getFieldById(@PathParam("id") int id) {
         System.out.println("GET field by id: " + id);
-        Field field = em.find(Field.class, id);
+        field = em.find(Field.class, id);
         return field;
     }
 }

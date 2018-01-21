@@ -22,16 +22,18 @@ public class BoardEJB {
     EntityManager em;
 
     @POST
-    @Path("/create/{name}_{lines}_{columns}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createBoard(@PathParam("name") String name,
-                             @PathParam("lines") int lines,
-                             @PathParam("columns") int columns) {
+    public void createBoard(Board board) {
         System.out.println("POST board: " + board);
-        board.setName(name);
-        board.setLines(lines);
-        board.setColumn(columns);
         em.persist(board);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updateBoard(Board board) {
+        System.out.println("PUT board: " + board);
+        em.merge(board);
     }
 
     @GET
@@ -39,7 +41,7 @@ public class BoardEJB {
     @Produces(MediaType.APPLICATION_JSON)
     public Board getBoardById(@PathParam("id") int id) {
         System.out.println("GET board by id: " + id);
-        Board board = em.find(Board.class, id);
+        board = em.find(Board.class, id);
         return board;
     }
 }

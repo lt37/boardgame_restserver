@@ -21,12 +21,18 @@ public class DiceEJB {
     EntityManager em;
 
     @POST
-    @Path("/create/{nbfaces}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createDice(@PathParam("nbfaces") int nbfaces) {
+    public void createDice(Dice dice) {
         System.out.println("POST dice: " + dice);
-        dice.setNbSides(nbfaces);
         em.persist(dice);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updateDice(Dice dice) {
+        System.out.println("PUT dice: " + dice);
+        em.merge(dice);
     }
 
     @GET
@@ -34,7 +40,7 @@ public class DiceEJB {
     @Produces(MediaType.APPLICATION_JSON)
     public Dice getDiceById(@PathParam("id") int id) {
         System.out.println("GET dice by id: " + id);
-        Dice dice = em.find(Dice.class, id);
+        dice = em.find(Dice.class, id);
         return dice;
     }
 }

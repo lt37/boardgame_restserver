@@ -21,11 +21,18 @@ public class SpecialWeaponEJB {
     EntityManager em;
 
     @POST
-    @Path("/create/")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createSpecialWeapon() {
+    public void createSpecialWeapon(SpecialWeapon specialWeapon) {
         System.out.println("POST specialWeapon: " + specialWeapon);
         em.persist(specialWeapon);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updateSpecialWeapon(SpecialWeapon specialWeapon) {
+        System.out.println("PUT specialWeapon: " + specialWeapon);
+        em.merge(specialWeapon);
     }
 
     @GET
@@ -33,7 +40,7 @@ public class SpecialWeaponEJB {
     @Produces(MediaType.APPLICATION_JSON)
     public SpecialWeapon getSpecialWeaponById(@PathParam("id") int id) {
         System.out.println("GET specialWeapon by id: " + id);
-        SpecialWeapon specialWeapon = em.find(SpecialWeapon.class, id);
+        specialWeapon = em.find(SpecialWeapon.class, id);
         return specialWeapon;
     }
 }

@@ -21,11 +21,18 @@ public class ShipEJB {
     EntityManager em;
 
     @POST
-    @Path("/create/")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createShip() {
+    public void createShip(Ship ship) {
         System.out.println("POST ship: " + ship);
         em.persist(ship);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updateShip(Ship ship) {
+        System.out.println("PUT ship: " + ship);
+        em.merge(ship);
     }
 
     @GET
@@ -33,7 +40,7 @@ public class ShipEJB {
     @Produces(MediaType.APPLICATION_JSON)
     public Ship getShipById(@PathParam("id") int id) {
         System.out.println("GET ship by id: " + id);
-        Ship ship = em.find(Ship.class, id);
+        ship = em.find(Ship.class, id);
         return ship;
     }
 }
