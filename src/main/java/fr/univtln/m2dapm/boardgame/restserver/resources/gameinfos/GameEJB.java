@@ -57,10 +57,10 @@ public class GameEJB {
         return game;
     }
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public List getAllGames() {
-        System.out.println("GET all games");
-        return em.createQuery("SELECT g FROM Game AS g", Game.class).getResultList();
-    }
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public List getAllGames() {
+//        System.out.println("GET all games");
+//        return em.createQuery("SELECT g FROM GAME AS g", Game.class).getResultList();
+//    }
 }

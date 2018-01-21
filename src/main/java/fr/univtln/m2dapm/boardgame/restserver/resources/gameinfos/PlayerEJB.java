@@ -67,10 +67,10 @@ public class PlayerEJB {
         return player;
     }
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public List getAllPlayers() {
-        System.out.println("GET all players");
-        return em.createQuery("SELECT p FROM Player AS p", Player.class).getResultList();
-    }
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public List getAllPlayers() {
+//        System.out.println("GET all players");
+//        return em.createQuery("SELECT p FROM Player AS p", Player.class).getResultList();
+//    }
 }
