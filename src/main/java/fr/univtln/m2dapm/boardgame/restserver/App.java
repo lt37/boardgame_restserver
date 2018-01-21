@@ -1,5 +1,7 @@
 package fr.univtln.m2dapm.boardgame.restserver;
 
+import com.google.gson.Gson;
+import fr.univtln.m2dapm.boardgame.business.gameinfos.Player;
 import org.apache.log4j.PatternLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,5 +28,10 @@ public class App extends Application {
         logger.info("App started.");
         logger.debug("About to talk :");
         System.out.println("Hello world !");
+        Player player = new Player();
+        player.setLoginName("boop");
+        player.setEncryptedPassword("bap");
+        String json = new Gson().toJson(player);
+        System.out.println(json);
     }
 }

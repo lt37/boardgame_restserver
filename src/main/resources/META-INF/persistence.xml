@@ -21,5 +21,8 @@
 		<class>fr.univtln.m2dapm.boardgame.business.tokens.Field</class>
 		<class>fr.univtln.m2dapm.boardgame.business.tokens.Ship</class>
 
+		<properties>
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+		</properties>
 	</persistence-unit>
 </persistence>
