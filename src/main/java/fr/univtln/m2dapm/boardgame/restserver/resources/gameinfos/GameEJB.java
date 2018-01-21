@@ -47,6 +47,16 @@ public class GameEJB {
     }
 
     @GET
+    @Path("/name/{name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Game getGameByName(@PathParam("name") String name) {
+        System.out.println("GET game by name: " + name);
+        TypedQuery<Game> query = em.createQuery("SELECT g FROM Game AS g WHERE g.name = :name", Game.class);
+        game = query.getSingleResult();
+        return game;
+    }
+
+    @GET
     @Path("/maxpj/{maxPJ}")
     @Produces(MediaType.APPLICATION_JSON)
     public Game getGameByMaxPJ(@PathParam("maxPJ") int maxPJ) {
@@ -57,10 +67,10 @@ public class GameEJB {
         return game;
     }
 
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public List getAllGames() {
-//        System.out.println("GET all games");
-//        return em.createQuery("SELECT g FROM GAME AS g", Game.class).getResultList();
-//    }
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List getAllGames() {
+        System.out.println("GET all games");
+        return em.createQuery("SELECT g FROM Game AS g", Game.class).getResultList();
+    }
 }
