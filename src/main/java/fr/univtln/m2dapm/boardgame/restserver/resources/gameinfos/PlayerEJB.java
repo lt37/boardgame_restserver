@@ -4,6 +4,7 @@ import fr.univtln.m2dapm.boardgame.business.gameinfos.Player;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -11,6 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+@Named
 @Stateless
 @Path("/players")
 public class PlayerEJB {
