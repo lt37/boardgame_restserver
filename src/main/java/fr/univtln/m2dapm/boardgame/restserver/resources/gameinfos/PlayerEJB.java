@@ -3,6 +3,7 @@ package fr.univtln.m2dapm.boardgame.restserver.resources.gameinfos;
 import fr.univtln.m2dapm.boardgame.business.gameinfos.Player;
 
 import javax.ejb.Stateless;
+import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Named
 @Stateless
+@ApplicationScoped
 @Path("/players")
 public class PlayerEJB {
 

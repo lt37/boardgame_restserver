@@ -4,6 +4,7 @@ import fr.univtln.m2dapm.boardgame.business.board.Square;
 import fr.univtln.m2dapm.boardgame.business.dices.Dice;
 
 import javax.ejb.Stateless;
+import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -11,6 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Stateless
+@ApplicationScoped
 @Path("/dices")
 public class DiceEJB {
 
