@@ -3,6 +3,7 @@ package fr.univtln.m2dapm.boardgame.restserver.resources.tokens;
 import fr.univtln.m2dapm.boardgame.business.tokens.Field;
 import fr.univtln.m2dapm.boardgame.business.tokens.Ship;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
@@ -16,7 +17,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/ships")
 public class ShipEJB {
 
-    @Inject
+    @EJB
     Ship ship;
 
     @PersistenceContext(unitName = "persistence")

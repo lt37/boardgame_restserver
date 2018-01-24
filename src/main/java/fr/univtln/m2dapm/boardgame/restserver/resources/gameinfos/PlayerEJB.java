@@ -2,6 +2,7 @@ package fr.univtln.m2dapm.boardgame.restserver.resources.gameinfos;
 
 import fr.univtln.m2dapm.boardgame.business.gameinfos.Player;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
@@ -19,7 +20,7 @@ import java.util.List;
 @Path("/players")
 public class PlayerEJB {
 
-    @Inject
+    @EJB
     Player player;
 
     @PersistenceContext(unitName = "persistence")

@@ -3,6 +3,7 @@ package fr.univtln.m2dapm.boardgame.restserver.resources.board;
 import fr.univtln.m2dapm.boardgame.business.board.Board;
 import fr.univtln.m2dapm.boardgame.business.gameinfos.Game;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
@@ -17,7 +18,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/boards")
 public class BoardEJB {
 
-    @Inject
+    @EJB
     Board board;
 
     @PersistenceContext(unitName = "persistence")

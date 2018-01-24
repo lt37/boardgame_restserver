@@ -3,6 +3,7 @@ package fr.univtln.m2dapm.boardgame.restserver.resources.bridgedices;
 import fr.univtln.m2dapm.boardgame.business.bridgedices.Bridge;
 import fr.univtln.m2dapm.boardgame.business.dices.Dice;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
@@ -16,7 +17,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/bridges")
 public class BridgeEJB {
 
-    @Inject
+    @EJB
     Bridge bridge;
 
     @PersistenceContext(unitName = "persistence")

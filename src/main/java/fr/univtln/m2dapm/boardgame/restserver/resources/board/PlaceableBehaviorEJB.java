@@ -3,6 +3,7 @@ package fr.univtln.m2dapm.boardgame.restserver.resources.board;
 import fr.univtln.m2dapm.boardgame.business.board.Board;
 import fr.univtln.m2dapm.boardgame.business.board.PlaceableBehavior;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
@@ -16,7 +17,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/placeableBehaviors")
 public class PlaceableBehaviorEJB {
 
-    @Inject
+    @EJB
     PlaceableBehavior placeableBehavior;
 
     @PersistenceContext(unitName = "persistence")

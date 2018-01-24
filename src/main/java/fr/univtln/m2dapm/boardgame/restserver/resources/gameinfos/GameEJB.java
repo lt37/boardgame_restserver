@@ -3,6 +3,7 @@ package fr.univtln.m2dapm.boardgame.restserver.resources.gameinfos;
 import fr.univtln.m2dapm.boardgame.business.gameinfos.Game;
 import fr.univtln.m2dapm.boardgame.business.gameinfos.Player;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
@@ -18,7 +19,7 @@ import java.util.List;
 @Path("/games")
 public class GameEJB {
 
-    @Inject
+    @EJB
     Game game;
 
     @PersistenceContext(unitName = "persistence")

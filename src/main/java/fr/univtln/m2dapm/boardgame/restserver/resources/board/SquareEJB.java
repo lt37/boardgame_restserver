@@ -3,6 +3,7 @@ package fr.univtln.m2dapm.boardgame.restserver.resources.board;
 import fr.univtln.m2dapm.boardgame.business.board.Board;
 import fr.univtln.m2dapm.boardgame.business.board.Square;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
@@ -16,7 +17,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/squares")
 public class SquareEJB {
 
-    @Inject
+    @EJB
     Square square;
 
     @PersistenceContext(unitName = "persistence")
